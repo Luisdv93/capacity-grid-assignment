@@ -26,15 +26,22 @@ describe('capacity interactions', () => {
       .mockResolvedValueOnce(response({ ...data, people: [{ ...data.people[0], weeklyHours: 32 }] }))
     vi.stubGlobal('fetch', fetch)
     render(<CapacityGrid from="2026-01-05" to="2026-01-09" />)
-    fireEvent.click(await screen.findByRole('button', { name: 'Edit weekly hours for Eli Nakamura' }))
+    const editButton = await screen.findByRole('button', { name: 'Edit weekly hours for Eli Nakamura' })
+    editButton.focus()
+    fireEvent.click(editButton)
     const input = screen.getByLabelText('Hours per week') as HTMLInputElement
     fireEvent.change(input, { target: { value: '32' } })
     fireEvent.click(screen.getByRole('button', { name: 'Save hours' }))
     expect(await screen.findByRole('alert')).toHaveProperty('textContent', expect.stringContaining('Your entry is kept'))
     expect(input.value).toBe('32')
+    expect(input.getAttribute('aria-invalid')).toBe('false')
+    expect(input.getAttribute('aria-describedby')).toContain(screen.getByRole('alert').id)
+    expect(document.activeElement).toBe(input)
     fireEvent.click(screen.getByRole('button', { name: 'Save hours' }))
     expect(await screen.findByText('12 h available')).toBeTruthy()
     expect(fetch).toHaveBeenCalledTimes(4)
+    fireEvent.click(screen.getByRole('button', { name: 'Done' }))
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'Edit weekly hours for Eli Nakamura' }))
   })
 
   it('distinguishes a saved edit from a failed refresh', async () => {

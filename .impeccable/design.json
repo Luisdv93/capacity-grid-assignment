@@ -286,7 +286,7 @@
       "kind": "button",
       "description": "Range, save, or navigation action.",
       "html": "<button class=\"ds-primary\">Save hours</button>",
-      "css": ".ds-primary{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;font-weight:550;cursor:pointer;background:var(--accent,#235b45);border-color:var(--accent,#235b45);color:#fff;}.ds-primary:hover:not(:disabled){background:#194732;}.ds-primary:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}.ds-primary:disabled{opacity:.65;cursor:wait;}",
+      "css": ".ds-primary{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;font-weight:550;cursor:pointer;background:var(--accent,#235b45);border-color:var(--accent,#235b45);color:#fff;}@media (hover:hover){.ds-primary:hover:not(:disabled){background:#194732;}}.ds-primary:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}.ds-primary:disabled{opacity:.65;cursor:default;}@media(max-width:520px){.ds-primary{min-height:44px;}}",
       "refersTo": "button-primary"
     },
     {
@@ -294,7 +294,7 @@
       "kind": "button",
       "description": "Range, save, or navigation action.",
       "html": "<button class=\"ds-secondary\">Next week</button>",
-      "css": ".ds-secondary{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;font-weight:550;cursor:pointer;}.ds-secondary:hover:not(:disabled){background:#eaf0e9;border-color:#678976;}.ds-secondary:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}.ds-secondary:disabled{opacity:.65;cursor:wait;}",
+      "css": ".ds-secondary{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;font-weight:550;cursor:pointer;}@media (hover:hover){.ds-secondary:hover:not(:disabled){background:#eaf0e9;border-color:#678976;}}.ds-secondary:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}.ds-secondary:disabled{opacity:.65;cursor:default;}@media(max-width:520px){.ds-secondary{min-height:44px;}}",
       "refersTo": "button-secondary"
     },
     {
@@ -302,7 +302,7 @@
       "kind": "input",
       "description": "Visible label above a native number field.",
       "html": "<label class=\"ds-label\">Hours per week<input class=\"ds-input\" type=\"number\" min=\"0\" value=\"40\"></label>",
-      "css": ".ds-label{display:flex;flex-direction:column;gap:5px;color:var(--muted,#53665e);font:600 12px system-ui;}.ds-input{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;width:112px;caret-color:var(--accent,#235b45);}.ds-input:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}.ds-input:disabled{opacity:.65;cursor:wait;}",
+      "css": ".ds-label{display:flex;flex-direction:column;gap:5px;color:var(--muted,#53665e);font:600 12px system-ui;}.ds-input{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;width:112px;caret-color:var(--accent,#235b45);}.ds-input:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}.ds-input:disabled{opacity:.65;cursor:default;}@media(max-width:520px){.ds-input{min-height:44px;font-size:16px;}}",
       "refersTo": "input"
     },
     {
@@ -310,7 +310,7 @@
       "kind": "nav",
       "description": "Paired actions shift the displayed range.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Week navigation\"><button>Previous week</button><button>Next week</button></nav>",
-      "css": ".ds-nav{display:flex;gap:8px;}.ds-nav button{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;font-weight:550;cursor:pointer;}.ds-nav button:hover{background:#eaf0e9;border-color:#678976;}.ds-nav button:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}"
+      "css": ".ds-nav{display:flex;gap:8px;}.ds-nav button{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;font-weight:550;cursor:pointer;}@media (hover:hover){.ds-nav button:hover{background:#eaf0e9;border-color:#678976;}}.ds-nav button:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}@media(max-width:520px){.ds-nav button{min-height:44px;}}"
     },
     {
       "name": "Inline editor",

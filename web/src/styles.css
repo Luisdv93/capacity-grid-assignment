@@ -24,11 +24,17 @@ p { margin: 0; line-height: 1.5; }
 .week-navigation, .range-form, .editor-controls { display: flex; gap: 8px; align-items: end; }
 button, input { font: inherit; font-size: 14px; min-height: 40px; border: 1px solid #aabbb0; border-radius: 6px; padding: 9px 12px; color: var(--ink); background: #fff; }
 button { cursor: pointer; font-weight: 550; }
-button:hover:not(:disabled) { background: #eaf0e9; border-color: #678976; }
+@media (hover: hover) {
+  button:hover:not(:disabled) { background: #eaf0e9; border-color: #678976; }
+  button.primary:hover:not(:disabled) { background: #194732; }
+}
 button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-button.primary:hover:not(:disabled) { background: #194732; }
-button:disabled, input:disabled { cursor: wait; opacity: .65; }
+button:active:not(:disabled) { background: #eaf0e9; }
+button.primary:active:not(:disabled) { background: #194732; }
+button:disabled, input:disabled { cursor: default; opacity: .65; }
+.editor form[aria-busy="true"] button, .editor form[aria-busy="true"] input { cursor: progress; }
 input { color-scheme: light; caret-color: var(--accent); }
+input[aria-invalid="true"] { border-color: var(--danger); }
 label { display: flex; flex-direction: column; gap: 5px; color: var(--muted); font-size: 12px; font-weight: 600; }
 :focus-visible { outline: 3px solid #387d5b; outline-offset: 3px; }
 ::selection { background: #cee7d5; color: #143c28; }
@@ -46,6 +52,8 @@ label { display: flex; flex-direction: column; gap: 5px; color: var(--muted); fo
 .capacity-table tbody th { position: sticky; left: 0; z-index: 1; background: #fff; height: 68px; padding: 0; font-weight: 500; }
 .capacity-table tbody td { height: 68px; padding: 12px 18px; }
 .person-button { display: block; width: 100%; height: 67px; min-height: 0; text-align: left; border: 0; border-radius: 0; padding: 10px 18px; background: transparent; }
+.person-button:disabled { opacity: 1; }
+.person-button:disabled .edit-label { visibility: hidden; }
 .person-button:focus-visible { outline-offset: -4px; }
 .person-name { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 13px; font-weight: 600; }
 .person-hours { display: block; font-size: 12px; color: var(--muted); margin-top: 5px; }
@@ -60,10 +68,11 @@ label { display: flex; flex-direction: column; gap: 5px; color: var(--muted); fo
 .capacity-table .unallocated { background: #fafbf9; }
 .grid-footnote { font-size: 12px; color: var(--muted); margin-top: 12px; }
 .editor { padding: 20px; margin-bottom: 16px; border: 1px solid #94b29f; border-radius: 8px; background: #edf4ee; display: flex; justify-content: space-between; gap: 24px; align-items: start; }
-.editor-heading { max-width: 60ch; }
+.editor-heading { max-width: 60ch; min-width: 0; overflow-wrap: anywhere; }
 .editor-heading p { font-size: 13px; color: var(--muted); }
-.editor form { min-width: 320px; }
+.editor form { width: 340px; min-width: 0; flex-shrink: 0; }
 .editor-controls { margin-top: 5px; }
+.editor-controls .primary { min-width: 100px; }
 .editor input { width: 112px; }
 .error { color: var(--danger); font-size: 13px; margin: 12px 0; }
 .success { color: var(--accent); font-size: 13px; margin-top: 10px; }
@@ -76,6 +85,7 @@ label { display: flex; flex-direction: column; gap: 5px; color: var(--muted); fo
   main { padding: 24px 20px; }
   .toolbar { flex-wrap: wrap; align-items: start; }
   .editor { flex-direction: column; }
+  .editor form { width: 100%; }
 }
 @media (max-width: 520px) {
   main { padding: 24px 12px; }
@@ -90,7 +100,12 @@ label { display: flex; flex-direction: column; gap: 5px; color: var(--muted); fo
   .person-button { padding: 10px; }
   .editor { padding: 14px; }
   .editor form { min-width: 0; width: 100%; }
-  .editor-controls { flex-wrap: wrap; }
+  button, input { min-height: 44px; }
+  input { font-size: 16px; }
+  .person-button { min-height: 0; }
+  .editor-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+  .editor input { grid-column: 1 / -1; width: 100%; }
+  .editor-controls button { min-width: 0; }
 }
 
 .grid-stage { position: relative; }

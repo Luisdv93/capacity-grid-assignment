@@ -98,7 +98,7 @@ Use the system sans-serif stack throughout. Tabular numerals keep hours aligned.
 
 ## Layout
 
-The centered page has a maximum width of (1600px). Desktop padding is (44px 40px 24px). The toolbar pairs week navigation with the range form. At (900px), controls wrap and the editor stacks. At (520px), the header and summary stack, the range action spans the form, and page side padding reduces to (12px).
+The centered page has a maximum width of (1600px). Desktop padding is (44px 40px 24px). The toolbar pairs week navigation with the range form. At (900px), controls wrap and the editor stacks. At (520px), the header and summary stack, the range action spans the form, and page side padding reduces to (12px). Narrow-screen controls are at least (44px) high, inputs use (16px) text, and the editor places its full-width input above two equal action columns.
 
 The table scrolls in both directions. Its viewport is `min(60vh, 612px)`, with a minimum height of (300px). Week headers stay at the top; person cells stay on the left. Headers are (70px) high and rows are (68px) high. Rows are virtualized with five extra rows on each side. The table width is calculated from (260px) plus (182px) per week; the first header width changes to (170px) on narrow screens.
 
@@ -112,10 +112,10 @@ Controls use small rounded corners. Table, editor, and load panels use the large
 
 ## Components
 
-- **Actions:** Dark green primary buttons apply a range or save hours. White secondary buttons navigate weeks, close the editor, or retry loading. Hover changes the surface. Disabled controls reduce opacity and use a waiting cursor.
-- **Fields:** Native date inputs select the range. A number input edits weekly hours. Labels stay visible above fields; focus uses the shared outline. Errors appear beside the affected flow.
+- **Actions:** Dark green primary buttons apply a range or save hours. White secondary buttons navigate weeks, close the editor, or retry loading. Hover changes the surface. Disabled controls reduce opacity. Person names stay fully legible while editing, and their unavailable Edit links are hidden. Only an active save uses a progress cursor; hover treatments apply to hover-capable pointers.
+- **Fields:** Native date inputs select the range. A number input edits weekly hours. Labels stay visible above fields; focus uses the shared outline. Errors appear beside the affected flow and describe the hours field through its accessible description. A failed network request does not mark a valid number as invalid.
 - **Capacity table:** Each cell shows assigned hours, capacity, and hours available or over capacity. Empty allocation has a faint neutral surface. Long person names truncate; the full name remains in the title attribute.
-- **Inline editor:** A pale green panel opens above the grid. It states that capacity applies to every week. Saving disables its controls. Success and error messages use text and status roles. Closing returns focus to the person control when it remains present.
+- **Inline editor:** A pale green panel opens above the grid. It states that capacity applies to every week. Saving disables its controls. Success and error messages use text and status roles. After a save attempt, focus returns to the hours field. Closing returns focus to the person control when it remains present.
 - **Load states:** Bordered white panels show loading, empty data, or a load error. A load error offers a retry action. The loading bar is static.
 
 ## Do's and Don'ts
