@@ -112,9 +112,9 @@ Controls use small rounded corners. Table, editor, and load panels use the large
 
 ## Components
 
-- **Actions:** Dark green primary buttons apply a range or save hours. White secondary buttons navigate weeks, close the editor, or retry loading. Hover changes the surface. Disabled controls reduce opacity. Person names stay fully legible while editing, and their unavailable Edit links are hidden. Only an active save uses a progress cursor; hover treatments apply to hover-capable pointers.
+- **Actions:** Dark green primary buttons apply a range or save hours. White secondary buttons navigate weeks, close the editor, or retry loading. Hover changes the surface. Disabled controls reduce opacity. Person names stay fully legible while editing, and their pencil icons dim while unavailable. Only an active save uses a progress cursor; hover treatments apply to hover-capable pointers.
 - **Fields:** Native date inputs select the range. A number input edits weekly hours. Labels stay visible above fields; focus uses the shared outline. Errors appear beside the affected flow and describe the hours field through its accessible description. A failed network request does not mark a valid number as invalid.
-- **Capacity table:** Each cell shows assigned hours, capacity, and hours available or over capacity. Empty allocation has a faint neutral surface. Long person names truncate; the full name remains in the title attribute.
+- **Capacity table:** Each cell shows assigned hours, capacity, and hours available or over capacity. Empty allocation has a faint neutral surface. Long person names truncate; the full name remains in the title attribute. Each person cell is a full-width edit button with a persistent pencil at the right. Hover and keyboard focus emphasize the pencil; no separate Edit link is shown.
 - **Inline editor:** A pale green panel opens above the grid. It states that capacity applies to every week. Saving disables its controls. Success and error messages use text and status roles. After a save attempt, focus returns to the hours field. Closing returns focus to the person control when it remains present.
 - **Load states:** Bordered white panels show loading, empty data, or a load error. A load error offers a retry action. The loading bar is static.
 
