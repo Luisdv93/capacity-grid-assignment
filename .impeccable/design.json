@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-01T22:36:27Z",
+  "title": "Design System: Capacity",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "oklch(15% 0.0699 164.58)",
+          "oklch(27% 0.0699 164.58)",
+          "oklch(38% 0.0699 164.58)",
+          "oklch(50% 0.0699 164.58)",
+          "oklch(61% 0.0699 164.58)",
+          "oklch(73% 0.0699 164.58)",
+          "oklch(84% 0.0699 164.58)",
+          "oklch(95% 0.0699 164.58)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Accent hover",
+        "tonalRamp": [
+          "oklch(15% 0.0626 160.90)",
+          "oklch(27% 0.0626 160.90)",
+          "oklch(38% 0.0626 160.90)",
+          "oklch(50% 0.0626 160.90)",
+          "oklch(61% 0.0626 160.90)",
+          "oklch(73% 0.0626 160.90)",
+          "oklch(84% 0.0626 160.90)",
+          "oklch(95% 0.0626 160.90)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0257 171.99)",
+          "oklch(27% 0.0257 171.99)",
+          "oklch(38% 0.0257 171.99)",
+          "oklch(50% 0.0257 171.99)",
+          "oklch(61% 0.0257 171.99)",
+          "oklch(73% 0.0257 171.99)",
+          "oklch(84% 0.0257 171.99)",
+          "oklch(95% 0.0257 171.99)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0263 167.82)",
+          "oklch(27% 0.0263 167.82)",
+          "oklch(38% 0.0263 167.82)",
+          "oklch(50% 0.0263 167.82)",
+          "oklch(61% 0.0263 167.82)",
+          "oklch(73% 0.0263 167.82)",
+          "oklch(84% 0.0263 167.82)",
+          "oklch(95% 0.0263 167.82)"
+        ]
+      },
+      "page": {
+        "role": "neutral",
+        "displayName": "Page",
+        "tonalRamp": [
+          "oklch(15% 0.0045 134.85)",
+          "oklch(27% 0.0045 134.85)",
+          "oklch(38% 0.0045 134.85)",
+          "oklch(50% 0.0045 134.85)",
+          "oklch(61% 0.0045 134.85)",
+          "oklch(73% 0.0045 134.85)",
+          "oklch(84% 0.0045 134.85)",
+          "oklch(95% 0.0045 134.85)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(27% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(50% 0.0000 89.88)",
+          "oklch(61% 0.0000 89.88)",
+          "oklch(73% 0.0000 89.88)",
+          "oklch(84% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15% 0.0127 149.24)",
+          "oklch(27% 0.0127 149.24)",
+          "oklch(38% 0.0127 149.24)",
+          "oklch(50% 0.0127 149.24)",
+          "oklch(61% 0.0127 149.24)",
+          "oklch(73% 0.0127 149.24)",
+          "oklch(84% 0.0127 149.24)",
+          "oklch(95% 0.0127 149.24)"
+        ]
+      },
+      "control-border": {
+        "role": "neutral",
+        "displayName": "Control border",
+        "tonalRamp": [
+          "oklch(15% 0.0243 157.44)",
+          "oklch(27% 0.0243 157.44)",
+          "oklch(38% 0.0243 157.44)",
+          "oklch(50% 0.0243 157.44)",
+          "oklch(61% 0.0243 157.44)",
+          "oklch(73% 0.0243 157.44)",
+          "oklch(84% 0.0243 157.44)",
+          "oklch(95% 0.0243 157.44)"
+        ]
+      },
+      "control-hover": {
+        "role": "neutral",
+        "displayName": "Control hover",
+        "tonalRamp": [
+          "oklch(15% 0.0113 141.26)",
+          "oklch(27% 0.0113 141.26)",
+          "oklch(38% 0.0113 141.26)",
+          "oklch(50% 0.0113 141.26)",
+          "oklch(61% 0.0113 141.26)",
+          "oklch(73% 0.0113 141.26)",
+          "oklch(84% 0.0113 141.26)",
+          "oklch(95% 0.0113 141.26)"
+        ]
+      },
+      "control-hover-border": {
+        "role": "neutral",
+        "displayName": "Control hover border",
+        "tonalRamp": [
+          "oklch(15% 0.0480 160.05)",
+          "oklch(27% 0.0480 160.05)",
+          "oklch(38% 0.0480 160.05)",
+          "oklch(50% 0.0480 160.05)",
+          "oklch(61% 0.0480 160.05)",
+          "oklch(73% 0.0480 160.05)",
+          "oklch(84% 0.0480 160.05)",
+          "oklch(95% 0.0480 160.05)"
+        ]
+      },
+      "header": {
+        "role": "neutral",
+        "displayName": "Header",
+        "tonalRamp": [
+          "oklch(15% 0.0079 139.44)",
+          "oklch(27% 0.0079 139.44)",
+          "oklch(38% 0.0079 139.44)",
+          "oklch(50% 0.0079 139.44)",
+          "oklch(61% 0.0079 139.44)",
+          "oklch(73% 0.0079 139.44)",
+          "oklch(84% 0.0079 139.44)",
+          "oklch(95% 0.0079 139.44)"
+        ]
+      },
+      "danger": {
+        "role": "neutral",
+        "displayName": "Danger",
+        "tonalRamp": [
+          "oklch(15% 0.1481 28.26)",
+          "oklch(27% 0.1481 28.26)",
+          "oklch(38% 0.1481 28.26)",
+          "oklch(50% 0.1481 28.26)",
+          "oklch(61% 0.1481 28.26)",
+          "oklch(73% 0.1481 28.26)",
+          "oklch(84% 0.1481 28.26)",
+          "oklch(95% 0.1481 28.26)"
+        ]
+      },
+      "over-surface": {
+        "role": "neutral",
+        "displayName": "Over surface",
+        "tonalRamp": [
+          "oklch(15% 0.0188 46.81)",
+          "oklch(27% 0.0188 46.81)",
+          "oklch(38% 0.0188 46.81)",
+          "oklch(50% 0.0188 46.81)",
+          "oklch(61% 0.0188 46.81)",
+          "oklch(73% 0.0188 46.81)",
+          "oklch(84% 0.0188 46.81)",
+          "oklch(95% 0.0188 46.81)"
+        ]
+      },
+      "over-detail": {
+        "role": "neutral",
+        "displayName": "Over detail",
+        "tonalRamp": [
+          "oklch(15% 0.1238 29.96)",
+          "oklch(27% 0.1238 29.96)",
+          "oklch(38% 0.1238 29.96)",
+          "oklch(50% 0.1238 29.96)",
+          "oklch(61% 0.1238 29.96)",
+          "oklch(73% 0.1238 29.96)",
+          "oklch(84% 0.1238 29.96)",
+          "oklch(95% 0.1238 29.96)"
+        ]
+      },
+      "empty-surface": {
+        "role": "neutral",
+        "displayName": "Empty surface",
+        "tonalRamp": [
+          "oklch(15% 0.0028 128.49)",
+          "oklch(27% 0.0028 128.49)",
+          "oklch(38% 0.0028 128.49)",
+          "oklch(50% 0.0028 128.49)",
+          "oklch(61% 0.0028 128.49)",
+          "oklch(73% 0.0028 128.49)",
+          "oklch(84% 0.0028 128.49)",
+          "oklch(95% 0.0028 128.49)"
+        ]
+      },
+      "editor-surface": {
+        "role": "neutral",
+        "displayName": "Editor surface",
+        "tonalRamp": [
+          "oklch(15% 0.0109 149.86)",
+          "oklch(27% 0.0109 149.86)",
+          "oklch(38% 0.0109 149.86)",
+          "oklch(50% 0.0109 149.86)",
+          "oklch(61% 0.0109 149.86)",
+          "oklch(73% 0.0109 149.86)",
+          "oklch(84% 0.0109 149.86)",
+          "oklch(95% 0.0109 149.86)"
+        ]
+      },
+      "editor-border": {
+        "role": "neutral",
+        "displayName": "Editor border",
+        "tonalRamp": [
+          "oklch(15% 0.0427 157.40)",
+          "oklch(27% 0.0427 157.40)",
+          "oklch(38% 0.0427 157.40)",
+          "oklch(50% 0.0427 157.40)",
+          "oklch(61% 0.0427 157.40)",
+          "oklch(73% 0.0427 157.40)",
+          "oklch(84% 0.0427 157.40)",
+          "oklch(95% 0.0427 157.40)"
+        ]
+      },
+      "focus": {
+        "role": "neutral",
+        "displayName": "Focus",
+        "tonalRamp": [
+          "oklch(15% 0.0889 159.75)",
+          "oklch(27% 0.0889 159.75)",
+          "oklch(38% 0.0889 159.75)",
+          "oklch(50% 0.0889 159.75)",
+          "oklch(61% 0.0889 159.75)",
+          "oklch(73% 0.0889 159.75)",
+          "oklch(84% 0.0889 159.75)",
+          "oklch(95% 0.0889 159.75)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Page headline",
+        "purpose": "Identify the capacity page."
+      },
+      "body": {
+        "displayName": "Table body",
+        "purpose": "Compare weekly hours."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "wrap",
+        "value": "900px"
+      },
+      {
+        "name": "narrow",
+        "value": "520px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "description": "Range, save, or navigation action.",
+      "html": "<button class=\"ds-primary\">Save hours</button>",
+      "css": ".ds-primary{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;font-weight:550;cursor:pointer;background:var(--accent,#235b45);border-color:var(--accent,#235b45);color:#fff;}@media (hover:hover){.ds-primary:hover:not(:disabled){background:#194732;}}.ds-primary:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}.ds-primary:disabled{opacity:.65;cursor:default;}@media(max-width:520px){.ds-primary{min-height:44px;}}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "description": "Range, save, or navigation action.",
+      "html": "<button class=\"ds-secondary\">Next week</button>",
+      "css": ".ds-secondary{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;font-weight:550;cursor:pointer;}@media (hover:hover){.ds-secondary:hover:not(:disabled){background:#eaf0e9;border-color:#678976;}}.ds-secondary:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}.ds-secondary:disabled{opacity:.65;cursor:default;}@media(max-width:520px){.ds-secondary{min-height:44px;}}",
+      "refersTo": "button-secondary"
+    },
+    {
+      "name": "Hours field",
+      "kind": "input",
+      "description": "Visible label above a native number field.",
+      "html": "<label class=\"ds-label\">Hours per week<input class=\"ds-input\" type=\"number\" min=\"0\" value=\"40\"></label>",
+      "css": ".ds-label{display:flex;flex-direction:column;gap:5px;color:var(--muted,#53665e);font:600 12px system-ui;}.ds-input{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;width:112px;caret-color:var(--accent,#235b45);}.ds-input:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}.ds-input:disabled{opacity:.65;cursor:default;}@media(max-width:520px){.ds-input{min-height:44px;font-size:16px;}}",
+      "refersTo": "input"
+    },
+    {
+      "name": "Week navigation",
+      "kind": "nav",
+      "description": "Paired actions shift the displayed range.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Week navigation\"><button>Previous week</button><button>Next week</button></nav>",
+      "css": ".ds-nav{display:flex;gap:8px;}.ds-nav button{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;font-size:14px;min-height:40px;border:1px solid #aabbb0;border-radius:6px;padding:9px 12px;color:var(--ink,#263832);background:#fff;font-weight:550;cursor:pointer;}@media (hover:hover){.ds-nav button:hover{background:#eaf0e9;border-color:#678976;}}.ds-nav button:focus-visible{outline:3px solid #387d5b;outline-offset:3px;}@media(max-width:520px){.ds-nav button{min-height:44px;}}@media(max-width:520px){.ds-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;}}"
+    },
+    {
+      "name": "Inline editor",
+      "kind": "card",
+      "description": "Pale green surface for weekly capacity changes.",
+      "html": "<section class=\"ds-editor\"><h2>Alex Morgan</h2><p>This changes capacity for every week, including past weeks. Assigned hours stay the same.</p></section>",
+      "css": ".ds-editor{font-family:system-ui;color:var(--ink,#263832);padding:20px;border:1px solid #94b29f;border-radius:8px;background:#edf4ee;}.ds-editor h2{margin:0 0 8px;font-size:18px;font-weight:650;}.ds-editor p{margin:0;color:var(--muted,#53665e);font-size:13px;line-height:1.5;max-width:60ch;}",
+      "refersTo": "editor"
+    },
+    {
+      "name": "Over-capacity cell",
+      "kind": "custom",
+      "description": "Assigned hours, capacity, and explicit excess.",
+      "html": "<div class=\"ds-over\"><div><strong>48 h</strong><span> / 40 h</span></div><p>Over by 8 h</p></div>",
+      "css": ".ds-over{font:13px system-ui;font-variant-numeric:tabular-nums;padding:12px 18px;background:#fff0e9;color:var(--danger,#9d2e26);border:1px solid var(--line,#dce4dd);}.ds-over strong{font-weight:650;}.ds-over span{font-size:12px;color:#963c30;}.ds-over p{margin:5px 0 0;font-size:11px;font-weight:650;color:#963c30;}",
+      "refersTo": "capacity-cell-over"
+    }
+  ],
+  "narrative": {
+    "northStar": "Operate",
+    "overview": "The interface supports weekly planning with a compact table, clear labels, and quiet green and neutral surfaces. Dark green marks primary actions. Warm red marks hours above capacity, with explicit text that states the excess.",
+    "keyCharacteristics": [
+      "Dense, readable weekly comparisons.",
+      "Stable person and week context while scrolling.",
+      "Direct editing with visible save and error states."
+    ],
+    "rules": [
+      {
+        "name": "The Explicit Status Rule",
+        "body": "State over-capacity hours in text as well as color.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do show hours and explicit availability or excess text together.",
+      "Do retain visible labels and keyboard focus treatments.",
+      "Do use the current weekly capacity wording consistently."
+    ],
+    "donts": [
+      "Don't rely on color alone to mark over-capacity cells.",
+      "Don't remove sticky person and week context from the scrolling table.",
+      "Don't add shadows or decorative motion to this restrained interface."
+    ]
+  }
+}
