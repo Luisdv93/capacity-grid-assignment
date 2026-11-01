@@ -7,14 +7,14 @@ const ROW_HEIGHT = 68
 const HEADER_HEIGHT = 70
 const OVERSCAN = 5
 
-export function CapacityTable({ data, onEdit, saving, hidden }: { data: Capacity; onEdit: (person: Person) => void; saving: boolean; hidden: boolean }) {
+export function CapacityTable({ data, onEdit, saving, hidden, regionId }: { data: Capacity; onEdit: (person: Person) => void; saving: boolean; hidden: boolean; regionId: string }) {
   const [scrollRow, setScrollRow] = useState(0)
   const start = Math.max(0, scrollRow - OVERSCAN)
   const count = Math.ceil(612 / ROW_HEIGHT) + OVERSCAN * 2
   const end = Math.min(data.people.length, start + count)
 
   return (
-    <div id="capacity-scroll" className="grid-scroll" style={{ visibility: hidden ? 'hidden' : 'visible' }} inert={hidden} tabIndex={0} role="region" aria-label="Weekly capacity. Scroll to see more people and weeks."
+    <div id={regionId} className="grid-scroll" style={{ visibility: hidden ? 'hidden' : 'visible' }} inert={hidden} tabIndex={0} role="region" aria-label="Weekly capacity. Scroll to see more people and weeks."
       onScroll={event => setScrollRow(Math.floor(Math.max(0, event.currentTarget.scrollTop - HEADER_HEIGHT) / ROW_HEIGHT))}>
       <table className="capacity-table" aria-rowcount={data.people.length + 1} aria-colcount={data.weeks.length + 1}
         style={{ width: 260 + data.weeks.length * 182 }}>
@@ -38,11 +38,11 @@ const PersonRow = memo(function PersonRow({ person, weeks, rowIndex, saving, onE
 }) {
   return <tr aria-rowindex={rowIndex}>
     <th scope="row"><button className="person-button" disabled={saving} onClick={() => onEdit(person)} aria-label={`Edit weekly hours for ${person.name}`}>
-      <span className="person-name" title={person.name}>{person.name}</span><span className="person-hours">{hoursLabel(person.weeklyHours)} h / week <span className="edit-label">Edit</span></span>
+      <span className="person-name" title={person.name}>{person.name}</span><span className="person-hours" title={`${person.weeklyHours} hours per week`}>{hoursLabel(person.weeklyHours)} h / week <span className="edit-label">Edit</span></span>
     </button></th>
     {person.allocatedHours.map((hours, index) => {
       const excess = hours - person.weeklyHours
-      return <td key={weeks[index]} className={excess > 0 ? 'over-capacity' : hours === 0 ? 'unallocated' : ''}>
+      return <td key={weeks[index]} aria-label={`${hours} hours assigned; ${person.weeklyHours} hours capacity; ${excess > 0 ? `${excess} hours over capacity` : `${Math.max(0, -excess)} hours available`}`} className={excess > 0 ? 'over-capacity' : hours === 0 ? 'unallocated' : ''}>
         <div className="cell-hours"><strong>{hoursLabel(hours)} h</strong><span> / {hoursLabel(person.weeklyHours)} h</span></div>
         <div className="cell-detail">{excess > 0 ? <span>Over by {hoursLabel(excess)} h</span> : hours === 0 ? 'No hours assigned' : `${hoursLabel(-excess)} h available`}</div>
       </td>
