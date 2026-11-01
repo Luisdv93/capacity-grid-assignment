@@ -98,7 +98,7 @@ Use the system sans-serif stack throughout. Tabular numerals keep hours aligned.
 
 ## Layout
 
-The centered page has a maximum width of (1600px). Desktop padding is (44px 40px 24px). The toolbar pairs week navigation with the range form. At (900px), controls wrap and the editor stacks. At (520px), the header and summary stack, the range action spans the form, and page side padding reduces to (12px). Week navigation spans the narrow screen in two equal columns. Narrow-screen controls are at least (44px) high, inputs use (16px) text, and the editor places its full-width input above two equal action columns.
+The centered page has a maximum width of (1600px). Desktop padding is (44px 40px 24px). The toolbar pairs week navigation with the range form. The over-capacity legend sits beside the range explanation directly above the table, wrapping beneath it on narrow screens. Its swatch matches the over-capacity cell surface. At (900px), controls wrap and the editor stacks. At (520px), the header and summary stack, the range action spans the form, and page side padding reduces to (12px). Week navigation spans the narrow screen in two equal columns. Narrow-screen controls are at least (44px) high, inputs use (16px) text, and the editor places its full-width input above two equal action columns.
 
 The table scrolls in both directions. Its viewport is `min(60vh, 612px)`, with a minimum height of (300px). Week headers stay at the top; person cells stay on the left. Headers are (70px) high and rows are (68px) high. Rows are virtualized with five extra rows on each side. The table width is calculated from (260px) plus (182px) per week; the first header width changes to (170px) on narrow screens.
 

@@ -20,7 +20,6 @@ export function App() {
     <main>
       <header className="page-header">
         <div><h1>Team capacity</h1><p>See the workload. Make room for what comes next.</p></div>
-        <span className="legend"><span className="legend-mark" /> Over capacity</span>
       </header>
       <section className="toolbar" aria-label="Date range">
         <div className="week-navigation">

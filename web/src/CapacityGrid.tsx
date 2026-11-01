@@ -31,7 +31,13 @@ export function CapacityGrid({ from, to }: Props) {
 
   return <section aria-label="Team capacity grid">
     <div className="grid-summary">
-      <p><strong>{dateLabel(effective.from)} – {dateLabel(effective.to)}</strong><span>Full weeks · Monday–Friday hours</span></p>
+      <div>
+        <p><strong>{dateLabel(effective.from)} – {dateLabel(effective.to)}</strong></p>
+        <div className="grid-context">
+          <span>Full weeks · Monday–Friday hours</span>
+          <span className="legend"><span className="legend-mark" aria-hidden="true" />Over capacity</span>
+        </div>
+      </div>
       {data ? <span>{data.people.length} people · {data.weeks.length} weeks</span> : null}
     </div>
     {person ? <CapacityEditor key={person.id} person={person} onPending={setSaving}
