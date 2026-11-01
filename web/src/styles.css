@@ -116,3 +116,5 @@ label { display: flex; flex-direction: column; gap: 5px; color: var(--muted); fo
 
 .grid-stage { position: relative; }
 .grid-stage:has(.grid-scroll) > .load-state { position: absolute; inset: 0; z-index: 4; }
+
+.save-status { margin: 0 0 12px; }

@@ -17,6 +17,7 @@ export function CapacityGrid({ from, to }: Props) {
   const personId = editor?.person.id ?? null
   const scrollId = useId()
   const returnFocus = useRef<HTMLElement | null>(null)
+  const retryButton = useRef<HTMLButtonElement>(null)
   const effective = weekRange(from, to)
 
   const edit = useCallback((next: Person) => {
@@ -25,13 +26,15 @@ export function CapacityGrid({ from, to }: Props) {
   }, [actions.edit])
 
   useEffect(() => {
-    if (personId !== null || returnFocus.current === null) return
-    const target = returnFocus.current.isConnected
-      ? returnFocus.current
-      : document.getElementById(scrollId)
+    if (personId !== null || loading || returnFocus.current === null) return
+    const target = error
+      ? retryButton.current
+      : returnFocus.current.isConnected
+        ? returnFocus.current
+        : document.getElementById(scrollId)
     target?.focus()
-    returnFocus.current = null
-  }, [personId, scrollId])
+    if (!error) returnFocus.current = null
+  }, [personId, scrollId, loading, error])
 
   return (
     <section aria-label="Team capacity grid">
@@ -60,6 +63,9 @@ export function CapacityGrid({ from, to }: Props) {
           onClose={actions.close}
         />
       ) : null}
+      {afterSave && !loading && !error ? (
+        <p className="success save-status" role="status">Hours saved.</p>
+      ) : null}
       <div className="grid-stage">
         {loading ? (
           <div className="load-state" role="status">
@@ -76,7 +82,7 @@ export function CapacityGrid({ from, to }: Props) {
                 : 'Capacity could not be loaded.'}
             </h2>
             <p>{error}</p>
-            <button onClick={actions.retry}>Retry loading</button>
+            <button ref={retryButton} onClick={actions.retry}>Retry loading</button>
           </div>
         ) : null}
         {data && data.people.length > 0 ? (

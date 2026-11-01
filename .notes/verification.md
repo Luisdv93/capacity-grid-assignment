@@ -25,7 +25,7 @@ This temporarily changes person 5 to 32.5 weekly hours, checks persistence and u
 
 ## Observed results
 
-- Fifteen frontend tests execute with `passWithNoTests: false`: date boundaries, stale responses, zero capacity, failed saves/retry, saved-but-refresh-failed, duplicate-save protection, and bounded number formatting. The suite also covers switching people with separate drafts, a range change during a pending save, read-only retry after a confirmed save, and direct module validation/write protection. Production TypeScript/Vite build passes.
+- Sixteen frontend tests execute with `passWithNoTests: false`: date boundaries, stale responses, zero capacity, failed saves/retry, saved-but-refresh-failed, duplicate-save protection, and bounded number formatting. The suite also covers switching people with separate drafts, a range change during a pending save, read-only retry after a confirmed save, and direct module validation/write protection. Production TypeScript/Vite build passes.
 - Go date and invalid-body validation tests pass. The live Python check matched 54,500 cells across its three requests, including 52,500 cells over 105 weeks.
 - Real browser: previous/next navigation, custom two-year range, scrolling to the final person, sticky names, and 13–19 mounted person rows. Successful edits hit the real API. Injected HTTP failures checked draft retention and the separate refresh-error state. The scroll offset stayed fixed through save/refresh/retry.
 - CSS widths 1280 and 390: inspected the loaded grid and date controls. Saved a capacity of 1e100; scientific display and exact numeric accessible labels avoided cell/page overflow. Restored Eli's capacity to zero afterward. Closing the editor returned keyboard focus to its edit button.
@@ -33,7 +33,7 @@ This temporarily changes person 5 to 32.5 weekly hours, checks persistence and u
 
 ## Editing module refactor
 
-`useCapacity` now owns loading, draft state, write protection, validation, saving, and post-save refresh. The React views keep DOM references and focus behavior. The nine prior tests remain; six additional cases exercise the module and the two agreed recovery paths. All fifteen pass, along with the build and React Doctor. The browser observations above are from the earlier implementation checks; this refactor was checked through automated behavior tests.
+`useCapacity` now owns loading, draft state, write protection, validation, saving, and post-save refresh. The React views keep DOM references and focus behavior. The nine prior tests remain; six additional cases exercise the module and the two agreed recovery paths. All sixteen pass, along with the build and React Doctor. The browser observations above are from the earlier implementation checks; this refactor was checked through automated behavior tests.
 
 ## Limits
 
@@ -44,3 +44,5 @@ This temporarily changes person 5 to 32.5 weekly hours, checks persistence and u
 - Browser failure checks used injected HTTP responses. No physical mobile device or screen reader session was used.
 
 `DECISIONS.md` remains for the human to write. Fixed data and build/run files were not changed.
+
+A confirmed save now closes the editor before the read finishes. A failed write keeps the editor open. Tests also check focus recovery through a failed refresh and retry. The latest React Doctor run reports one maintainability warning for control-flow complexity in CapacityGrid; the build and all sixteen behavior tests pass.

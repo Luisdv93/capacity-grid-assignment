@@ -12,6 +12,24 @@ const response = (body: unknown, ok = true) => ({ ok, json: async () => body }) 
 afterEach(() => { cleanup(); vi.unstubAllGlobals() })
 
 describe('capacity interactions', () => {
+  it('closes the editor after saving before the figures finish refreshing', async () => {
+    let finishRefresh: (value: Response) => void = () => {}
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValueOnce(response(data))
+      .mockResolvedValueOnce(response({ id: 5, weeklyHours: 32 }))
+      .mockImplementationOnce(() => new Promise<Response>(resolve => { finishRefresh = resolve })))
+    render(<CapacityGrid from="2026-01-05" to="2026-01-09" />)
+    fireEvent.click(await screen.findByRole('button', { name: 'Edit weekly hours for Eli Nakamura' }))
+    fireEvent.change(screen.getByLabelText('Hours per week'), { target: { value: '32' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Save hours' }))
+    await screen.findByText('Updating capacity…')
+    expect(screen.queryByLabelText('Hours per week')).toBeNull()
+    await act(async () => {
+      finishRefresh(response({ ...data, people: [{ ...data.people[0], weeklyHours: 32 }] }))
+    })
+    expect(await screen.findByText('Hours saved.')).toBeTruthy()
+    expect(screen.getByText('12 h available')).toBeTruthy()
+  })
+
   it('finishes a save for its original person and refreshes the current range', async () => {
     let finishSave: (value: Response) => void = () => {}
     let finishOldRead: (value: Response) => void = () => {}
@@ -54,12 +72,16 @@ describe('capacity interactions', () => {
       .mockResolvedValueOnce(response(updated))
     vi.stubGlobal('fetch', fetch)
     render(<CapacityGrid from="2026-01-05" to="2026-01-09" />)
-    fireEvent.click(await screen.findByRole('button', { name: 'Edit weekly hours for Eli Nakamura' }))
+    const editButton = await screen.findByRole('button', { name: 'Edit weekly hours for Eli Nakamura' })
+    editButton.focus()
+    fireEvent.click(editButton)
     fireEvent.change(screen.getByLabelText('Hours per week'), { target: { value: '32' } })
     fireEvent.click(screen.getByRole('button', { name: 'Save hours' }))
     await screen.findByText('Hours saved. Figures could not be updated.')
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'Retry loading' }))
     fireEvent.click(screen.getByRole('button', { name: 'Retry loading' }))
     expect(await screen.findByText('12 h available')).toBeTruthy()
+    expect(document.activeElement).toBe(editButton)
     expect(fetch).toHaveBeenCalledTimes(4)
     expect(fetch.mock.calls.filter(([, options]) => options?.method === 'PATCH')).toHaveLength(1)
     expect(fetch.mock.calls[3][0]).toBe('/api/capacity?from=2026-01-05&to=2026-01-09')
@@ -117,7 +139,7 @@ describe('capacity interactions', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Save hours' }))
     expect(await screen.findByText('12 h available')).toBeTruthy()
     expect(fetch).toHaveBeenCalledTimes(4)
-    fireEvent.click(screen.getByRole('button', { name: 'Done' }))
+    expect(screen.queryByLabelText('Hours per week')).toBeNull()
     expect(document.activeElement).toBe(screen.getByRole('button', { name: 'Edit weekly hours for Eli Nakamura' }))
   })
 

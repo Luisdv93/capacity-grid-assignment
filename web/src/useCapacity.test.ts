@@ -45,6 +45,7 @@ it('blocks duplicate writes through the module interface before the view can dis
     await firstSave
   })
   await waitFor(() => expect(result.current.load.loading).toBe(false))
-  expect(result.current.editor?.status).toBe('saved')
+  expect(result.current.editor).toBeNull()
+  expect(result.current.load.afterSave).toBe(true)
   expect(fetch.mock.calls.filter(([, options]) => options?.method === 'PATCH')).toHaveLength(1)
 })

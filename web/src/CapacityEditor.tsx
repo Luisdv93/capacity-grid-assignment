@@ -15,7 +15,6 @@ export function CapacityEditor({ editor, onDraftChange, onSave, onClose }: Props
   const errorId = useId()
   const input = useRef<HTMLInputElement>(null)
   const pending = status === 'saving'
-  const saved = status === 'saved'
 
   useEffect(() => {
     if (!pending) input.current?.focus()
@@ -52,7 +51,7 @@ export function CapacityEditor({ editor, onDraftChange, onSave, onClose }: Props
             {pending ? 'Saving…' : 'Save hours'}
           </button>
           <button type="button" onClick={onClose} disabled={pending}>
-            {saved ? 'Done' : 'Cancel'}
+            Cancel
           </button>
         </div>
         {error ? (
@@ -60,7 +59,6 @@ export function CapacityEditor({ editor, onDraftChange, onSave, onClose }: Props
             {error.message} Your entry is kept; retry Save hours.
           </p>
         ) : null}
-        {saved ? <p className="success" role="status">Hours saved.</p> : null}
       </form>
     </section>
   )

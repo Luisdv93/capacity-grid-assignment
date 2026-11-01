@@ -4,7 +4,7 @@ import { request, type Capacity, type Person } from './api'
 export type CapacityEdit = {
   person: Person
   draft: string
-  status: 'editing' | 'saving' | 'saved' | 'error'
+  status: 'editing' | 'saving' | 'error'
   error?: { kind: 'validation' | 'save'; message: string }
 }
 
@@ -147,6 +147,7 @@ function editReducer(state: EditState, action: EditAction): EditState {
         drafts: { ...drafts, [editor.person.id]: action.draft },
         editor: { ...editor, draft: action.draft, status: 'editing', error: undefined },
       }
+    case 'saved':
     case 'close': {
       const remaining = { ...drafts }
       delete remaining[editor.person.id]
@@ -154,8 +155,6 @@ function editReducer(state: EditState, action: EditAction): EditState {
     }
     case 'saving':
       return { drafts, editor: { ...editor, status: 'saving', error: undefined } }
-    case 'saved':
-      return { drafts, editor: { ...editor, status: 'saved', error: undefined } }
     case 'error':
       return { drafts, editor: { ...editor, status: 'error', error: action.error } }
   }
