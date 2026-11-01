@@ -12,6 +12,30 @@ const response = (body: unknown, ok = true) => ({ ok, json: async () => body }) 
 afterEach(() => { cleanup(); vi.unstubAllGlobals() })
 
 describe('capacity interactions', () => {
+  it('switches people without losing drafts and cancels only the active draft', async () => {
+    const fetch = vi.fn().mockResolvedValue(response({ ...data, people: [
+      ...data.people, { id: 1, name: 'Ana Ferreira', weeklyHours: 40, allocatedHours: [30] },
+    ] }))
+    vi.stubGlobal('fetch', fetch)
+    render(<CapacityGrid from="2026-01-05" to="2026-01-09" />)
+    const eli = await screen.findByRole('button', { name: 'Edit weekly hours for Eli Nakamura' })
+    const ana = screen.getByRole('button', { name: 'Edit weekly hours for Ana Ferreira' })
+    fireEvent.click(eli)
+    fireEvent.change(screen.getByLabelText('Hours per week'), { target: { value: '32' } })
+    expect((ana as HTMLButtonElement).disabled).toBe(false)
+    fireEvent.click(ana)
+    expect((screen.getByLabelText('Hours per week') as HTMLInputElement).value).toBe('40')
+    fireEvent.change(screen.getByLabelText('Hours per week'), { target: { value: '36' } })
+    fireEvent.click(eli)
+    expect((screen.getByLabelText('Hours per week') as HTMLInputElement).value).toBe('32')
+    fireEvent.click(screen.getByRole('button', { name: 'Cancel' }))
+    fireEvent.click(eli)
+    expect((screen.getByLabelText('Hours per week') as HTMLInputElement).value).toBe('0')
+    fireEvent.click(ana)
+    expect((screen.getByLabelText('Hours per week') as HTMLInputElement).value).toBe('36')
+    expect(fetch).toHaveBeenCalledTimes(1)
+  })
+
   it('shows positive allocation at zero capacity without an infinite percentage', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(response(data)))
     render(<CapacityGrid from="2026-01-05" to="2026-01-09" />)
@@ -80,6 +104,7 @@ describe('capacity interactions', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Save hours' }))
     const saving = screen.getByRole('button', { name: 'Saving…' }) as HTMLButtonElement
     expect(saving.disabled).toBe(true)
+    expect((screen.getByRole('button', { name: 'Edit weekly hours for Eli Nakamura' }) as HTMLButtonElement).disabled).toBe(true)
     fireEvent.click(saving)
     expect(fetch).toHaveBeenCalledTimes(2)
     await act(async () => { resolveSave(response({ id: 5, weeklyHours: 0 })) })

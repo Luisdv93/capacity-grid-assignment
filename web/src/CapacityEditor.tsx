@@ -1,8 +1,10 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { request, type Person } from './api'
 
-export function CapacityEditor({ person, onSaved, onClose, onPending }: {
+export function CapacityEditor({ person, draft, onDraftChange, onSaved, onClose, onPending }: {
   person: Person
+  draft: string
+  onDraftChange: (draft: string) => void
   onSaved: () => void
   onClose: () => void
   onPending: (pending: boolean) => void
@@ -10,7 +12,6 @@ export function CapacityEditor({ person, onSaved, onClose, onPending }: {
   const inputId = useId()
   const descriptionId = useId()
   const errorId = useId()
-  const [draft, setDraft] = useState(String(person.weeklyHours))
   const [pending, setPending] = useState(false)
   const [error, setError] = useState('')
   const [saved, setSaved] = useState(false)
@@ -56,7 +57,7 @@ export function CapacityEditor({ person, onSaved, onClose, onPending }: {
         <div className="editor-controls">
           <input id={inputId} type="number" min="0" step="any" required ref={input} value={draft}
             disabled={pending} aria-describedby={error ? `${descriptionId} ${errorId}` : descriptionId} aria-invalid={Boolean(error) && invalid}
-            onChange={event => { setDraft(event.target.value); setSaved(false); setError('') }} />
+            onChange={event => { onDraftChange(event.target.value); setSaved(false); setError('') }} />
           <button className="primary" type="submit" disabled={pending}>{pending ? 'Saving…' : 'Save hours'}</button>
           <button type="button" onClick={onClose} disabled={pending}>{saved ? 'Done' : 'Cancel'}</button>
         </div>
